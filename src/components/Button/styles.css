@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;
+  height: 5%;
+  width: 100%;
+  border: 0px;
+  border-radius: 5px;
+  background-color: #00c093;
+  transition: 0.5s ease-in-out;
+  margin-bottom: 3%;
+}
+
+.button:hover {
+  transition: 0.5s ease-in-out;
+  background-color: #009975;
+}
+
+.button-label {
+  color: #fff;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.5s ease-in-out;
+}

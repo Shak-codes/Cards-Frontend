@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import './styles.css';
 import Input from './components/Input/Input';
+import Button from './components/Button/Button';
 import logo from './assets/logo.png'; // Adjust the path based on your directory structure
 
 
@@ -63,37 +64,33 @@ const App = () => {
   return (
     <div className="background">
       {!loggedin ?
-      (<div className='container'>
+      (
+      <div className='container'>
         <img src={logo} alt="Logo" className="logo" />
         <h1>Welcome!</h1>
-        <Input id='test' value={username} onChange={handleUsername} label='Username'/>
-        <Input id='test2' value={password} onChange={handlePassword} label='Password' />
-        <button className='button' onClick={() => createAccount(username, password)}>
-          <p className='button-label'>
-            Create Account
-          </p>
-        </button>
-      </div>) :
-      (
-        <>
+        <Input id='username' value={username} onChange={handleUsername} label='Username'/>
+        <Input id='password' value={password} onChange={handlePassword} label='Password' />
+        <Button onClick={() => createAccount(username, password)} label='Create Account!' />
+      </div>
+      ) : (
+        <div className='container'>
           <h1>Hey {username}!</h1>
           {!isUserInRoom ?
           (
             <>
-              <button onClick={createRoom}>Create Room</button>
-              <input onChange={handleRoomCode} placeholder='Enter Room Code'/>
-              <button onClick={createRoom}>Join Room</button>
+              <Button onClick={() => createRoom()} label='Create Room!' />
+              <Input id='roomCode' value={roomCode} onChange={handleRoomCode} label='Enter Room Code' />
+              <Button onClick={() => joinRoom()} label='Join Room!' />
             </>
           ): (
             <>
               <h1>You are currently in a room! {roomCode} - {isUserInRoom}</h1>
               <p>Copy Room Code</p>
               <p>Send a link for friends to join!</p>
-              <button onClick={() => { localStorage.clear(); }}>Clear Storage</button>
+              <Button onClick={() => localStorage.clear()} label='Clear Storage' />
             </>
           )}
-          
-        </>
+        </div>
       )}
     </div>
   );
