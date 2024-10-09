@@ -5,11 +5,10 @@ import { useState, useEffect } from 'react';
 import './styles.css';
 import Input from './components/Input/Input';
 import Button from './components/Button/Button';
-import logo from './assets/logo.png'; // Adjust the path based on your directory structure
-
+import logo from './assets/logo.png';
+import Card from './components/Card/Card';
 
 const socket = io("http://localhost:3001")
-
 
 const App = () => {
   const [loggedin, setLoggedin] = useState<boolean>(!!localStorage.getItem('username'));
@@ -93,6 +92,7 @@ const App = () => {
       (
       <div className='container'>
         <img src={logo} alt="Logo" className="logo" />
+        <Card name='TS' />
         <h1>Welcome!</h1>
         <Input id='username' value={username} onChange={handleUsername} label='Username'/>
         <Input id='password' value={password} onChange={handlePassword} label='Password' />
