@@ -39,14 +39,40 @@ const App = () => {
     setIsUserInRoom(true);
   }
 
-  const createAccount = (username: string, password: string) => {
-    if (users.get(username) === undefined) {
-      users.set(username, password);
-      localStorage.setItem('username', username);
-      setUsername(username);
-      setLoggedin(true);
+  const createAccount = async (email: string, password: string) => {
+    const body = {
+      email: email,
+      password: password,
+    };
+
+    try {
+      // Make a POST request to your backend API
+      const response = await fetch('http://localhost:5000/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (response.ok) {
+        // User registered successfully, store in localStorage and update state
+        localStorage.setItem('username', email);
+        setUsername(email);
+        setLoggedin(true);
+        console.log('User registered successfully');
+      } else {
+        // Handle errors (e.g., email already exists)
+        const data = await response.json();
+        console.error('Error:', data.message);
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('Error registering user:', error);
+      alert('Failed to create account. Please try again later.');
     }
-  }
+  };
+
 
   const handleUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
