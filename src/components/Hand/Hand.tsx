@@ -8,16 +8,28 @@ interface HandProps {
 const Hand: React.FC<HandProps> = ({ cards }) => {
   const [focusedCard, setFocusedCard] = useState<string | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  // const [leftPosition, setLeftPosition] = useState<number[]>([]);
+  const [offset, setOffset] = useState<number[]>(Array(cards.length).fill(0));
+
+  const incrementArr = (arr: number[], startIndex: number, incrementValue: number): number[] => {
+    return arr.map((value, index) => {
+      if (index > startIndex) {
+        return value + incrementValue;
+      }
+      return value;
+    });
+  }
 
   const handleCardClick = (cardName: string) => {
+    const index = cards.indexOf(cardName);
     setSelected((prev) => {
       const updatedSelection = new Set(prev);
       if (updatedSelection.has(cardName)) {
         updatedSelection.delete(cardName);
+        setOffset(incrementArr([...offset], index, -3));
         return updatedSelection;
       } 
       updatedSelection.add(cardName); 
+      setOffset(incrementArr([...offset], index, 3));
       return updatedSelection;
     });
   };
@@ -29,15 +41,8 @@ const Hand: React.FC<HandProps> = ({ cards }) => {
 
         const multiplier = cards.length > 1 ? 1.5 * (35 / cards.length**1.5) : 0;
         const angle = (index - cards.length / 2) * multiplier;
-        let left = -24.44 + index * 2;
-        // const newArr = leftPosition;
-        // newArr.push(left);
-        // setLeftPosition(newArr);
 
-        // for (let i = 0; i < selected.length; i++) {
-        //   const highlightedIdx = cards.indexOf(selected[i]);
-        //   if (index > highlightedIdx) leftPosition += 4;
-        // }
+        const left = -24.44 + index * 2;
 
         return (
           <div
@@ -46,9 +51,10 @@ const Hand: React.FC<HandProps> = ({ cards }) => {
             onMouseLeave={() => setFocusedCard(null)}
             style={{
               position: 'absolute',
+              transition: 'transform 0.3s ease-in-out',
               left: `${left}vw`,
               height: '20vw',
-              transition: 'transform 1s ease-in-out',
+              transform: `translateX(${offset[index]}vw)`
             }}
           >
             <Card
