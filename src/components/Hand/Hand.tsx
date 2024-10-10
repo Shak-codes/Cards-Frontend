@@ -36,7 +36,8 @@ const Hand: React.FC<HandProps> = ({ cards }) => {
             onMouseLeave={() => setFocusedCard(null)}
             style={{
               position: 'absolute',
-              left: `${-24.44 * cards.length + index * 40}px`,
+              left: `${-24.44 + index * 2}vw`,
+              height: '20vw',
             }}
           >
             <Card

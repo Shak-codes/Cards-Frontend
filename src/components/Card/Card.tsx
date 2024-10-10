@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({ name, isFocused, onClick, angle }) => {
         animation: isFocused
           ? 'pulse-glow 1.5s infinite ease-in-out'
           : 'none',
-        transform: `translateY(${isFocused ? '-60px' : '0px'}) rotate(${angle}deg)`,
+        transform: `translateY(${isFocused ? '-3vw' : '0px'}) rotate(${angle}deg)`,
         transition: 'transform 0.1s ease-in-out',
       }}
     >
@@ -35,8 +35,8 @@ const Card: React.FC<CardProps> = ({ name, isFocused, onClick, angle }) => {
         alt={name}
         style={{
           display: 'block',
-          overflow: 'hidden',    // Clip anything that might overflow
-          height: `80%`,
+          overflow: 'hidden',
+          height: `100%`,
         }}
       />
       <style>
