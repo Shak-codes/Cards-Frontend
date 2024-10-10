@@ -7,18 +7,19 @@ interface HandProps {
 
 const Hand: React.FC<HandProps> = ({ cards }) => {
   const [focusedCard, setFocusedCard] = useState<string | null>(null);
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  // const [leftPosition, setLeftPosition] = useState<number[]>([]);
 
   const handleCardClick = (cardName: string) => {
-    const duplicate = selected;
-    if (selected.includes(cardName)) {
-      const index = duplicate.indexOf(cardName);
-      duplicate.splice(index, 1)
-      setSelected(duplicate);
-      return;
-    }
-    duplicate.push(cardName)
-    setSelected(duplicate);
+    setSelected((prev) => {
+      const updatedSelection = new Set(prev);
+      if (updatedSelection.has(cardName)) {
+        updatedSelection.delete(cardName);
+        return updatedSelection;
+      } 
+      updatedSelection.add(cardName); 
+      return updatedSelection;
+    });
   };
 
   return (
@@ -28,6 +29,15 @@ const Hand: React.FC<HandProps> = ({ cards }) => {
 
         const multiplier = cards.length > 1 ? 1.5 * (35 / cards.length**1.5) : 0;
         const angle = (index - cards.length / 2) * multiplier;
+        let left = -24.44 + index * 2;
+        // const newArr = leftPosition;
+        // newArr.push(left);
+        // setLeftPosition(newArr);
+
+        // for (let i = 0; i < selected.length; i++) {
+        //   const highlightedIdx = cards.indexOf(selected[i]);
+        //   if (index > highlightedIdx) leftPosition += 4;
+        // }
 
         return (
           <div
@@ -36,13 +46,14 @@ const Hand: React.FC<HandProps> = ({ cards }) => {
             onMouseLeave={() => setFocusedCard(null)}
             style={{
               position: 'absolute',
-              left: `${-24.44 + index * 2}vw`,
+              left: `${left}vw`,
               height: '20vw',
+              transition: 'transform 1s ease-in-out',
             }}
           >
             <Card
               name={cardName}
-              isFocused={isFocused || selected.includes(cardName)}
+              isFocused={isFocused || selected.has(cardName)}
               onClick={() => handleCardClick(cardName)}
               angle={angle}
             />
