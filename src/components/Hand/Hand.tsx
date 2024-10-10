@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 
 interface HandProps {
-  cards: string[]; // Array of card names, e.g., ["AS", "2S", "KH"]
+  cards: string[];
 }
 
 const Hand: React.FC<HandProps> = ({ cards }) => {
@@ -13,7 +13,8 @@ const Hand: React.FC<HandProps> = ({ cards }) => {
     const duplicate = selected;
     if (selected.includes(cardName)) {
       const index = duplicate.indexOf(cardName);
-      setSelected(duplicate.splice(index, 1));
+      duplicate.splice(index, 1)
+      setSelected(duplicate);
       return;
     }
     duplicate.push(cardName)
@@ -25,10 +26,8 @@ const Hand: React.FC<HandProps> = ({ cards }) => {
       {cards.map((cardName, index) => {
         const isFocused = focusedCard === cardName;
 
-        // Calculate rotation angle
         const multiplier = cards.length > 1 ? 1.5 * (35 / cards.length**1.5) : 0;
-        const angle = (index - cards.length / 2) * multiplier; // Adjust the multiplier for rotation intensity
-        // const angle = (index - cards.length / Math.floor(Math.sqrt(cards.length))) * 0.1;
+        const angle = (index - cards.length / 2) * multiplier;
 
         return (
           <div
