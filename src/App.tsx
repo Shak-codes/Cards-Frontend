@@ -7,6 +7,7 @@ import Input from './components/Input/Input';
 import Button from './components/Button/Button';
 import logo from './assets/logo.png';
 import Card from './components/Card/Card';
+import Hand from './components/Hand/Hand';
 
 const socket = io("http://localhost:3001")
 
@@ -87,16 +88,16 @@ const App = () => {
 
 
   return (
-    <div className="background">
+    <div className="background" >
       {!loggedin ?
       (
       <div className='container'>
-        <img src={logo} alt="Logo" className="logo" />
-        <Card name='TS' />
-        <h1>Welcome!</h1>
+        {/* <img src={logo} alt="Logo" className="logo" /> */}
+        <Hand cards={['AS', '_2H', '_2D', '_2S', '_2C', '_3H', '_3D', '_3S', '_3C', '_4H', '_4D', '_4S', '_4C', '_5H', '_5D', '_5S', '_5C', '_6H', '_6D', '_6S', '_6C']} />
+        {/* <h1>Welcome!</h1>
         <Input id='username' value={username} onChange={handleUsername} label='Username'/>
         <Input id='password' value={password} onChange={handlePassword} label='Password' />
-        <Button onClick={() => createAccount(username, password)} label='Create Account!' />
+        <Button onClick={() => createAccount(username, password)} label='Create Account!' /> */}
       </div>
       ) : (
         <div className='container'>
