@@ -19,7 +19,8 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/lobby" element={<Lobby />} />
       </Routes>
@@ -140,5 +141,3 @@ export default App;
 //     </div>
 //   );
 // }
-
-export default App;

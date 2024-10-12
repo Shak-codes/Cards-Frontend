@@ -1,4 +1,4 @@
-export { default as Home } from './Home';
-export { default as Settings } from './Settings';
-export { default as Lobby } from './Lobby';
-export { default as Landing } from './Landing';
+export { default as Home } from './Home/Home';
+export { default as Settings } from './Settings/Settings';
+export { default as Lobby } from './Lobby/Lobby';
+export { default as Landing } from './Landing/Landing';
