@@ -6,8 +6,9 @@ const Landing: React.FC = () => {
   return (
     <div className='container'>
       <BGPattern>
-        <h1 className="header">Landing!</h1>
       </BGPattern>
+      {/* <h1 className="header">CARDS</h1>
+      <h1 className="desc">Your favorite games the way you like them, whenever, wherever, with whoever you like, and fitting everyone's schedule.</h1> */}
     </div>
   );
 };

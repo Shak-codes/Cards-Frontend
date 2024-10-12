@@ -7,7 +7,17 @@
 }
 
 .header {
+    position: absolute;
     color: azure;
+    font-family: 'AcuminBold', sans-serif;
+    font-size: 100px;
+    z-index: 1;
+}
+
+.desc {
+    position: absolute;
+    color: azure;
+    font-family: 'AcuminBold', sans-serif;
 }
 
 .animated-rect {
@@ -17,12 +27,6 @@ animation: translatePattern 90s linear infinite;
 @keyframes translatePattern {
 0% {
     transform: translateY(0);
-}
-33% {
-    transform: translateY(-100%);
-}
-66% {
-    transform: translateY(-200%);
 }
 100% {
     transform: translateY(-300%);
