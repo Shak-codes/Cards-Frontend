@@ -5,10 +5,17 @@ import { ReactComponent as BGPattern } from '../../assets/background/animatedbac
 const Landing: React.FC = () => {
   return (
     <div className='container'>
-      <BGPattern>
+      <BGPattern className='bg'>
       </BGPattern>
-      {/* <h1 className="header">CARDS</h1>
-      <h1 className="desc">Your favorite games the way you like them, whenever, wherever, with whoever you like, and fitting everyone's schedule.</h1> */}
+      <div className='header'>
+        <div className='title'>
+          <h1 className="title1">CARD</h1>
+          <h1 className="title2">GAMES</h1>
+        </div>
+        <div className='tagline'>
+          <h1 className="desc">Enjoy your favorite card games on your terms. Play with friends anytime, anywhere, at your own pace whenever it fits your schedule.</h1>
+        </div>
+      </div>
     </div>
   );
 };
