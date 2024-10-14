@@ -5,7 +5,7 @@
   background-color: #fff;
   height: 48px;
   width: 100%;
-  border-color: #fff;
+  border: none;
   border-radius: 5px;
   transition: 0.5s ease-in-out;
   z-index: 1;
@@ -13,7 +13,7 @@
 }
 
 .button:hover {
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
   color: #fff;
-  background-color: #012d26;
+  background-color: #0e3831;
 }

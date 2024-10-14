@@ -66,3 +66,26 @@
     height: 70%;
     z-index: 1;
 }
+
+.animated-rect {
+    transform-origin: center center;
+    animation: translatePattern 90s linear infinite, rotatePattern 180s linear infinite;
+}
+
+@keyframes translatePattern {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-300%);
+    }
+}
+
+@keyframes rotatePattern {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
