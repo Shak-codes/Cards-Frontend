@@ -1,8 +1,10 @@
+@import '../../constants/colors.scss';
+
 .button {
-  justify-content: center; /* Centers content horizontally */
+  justify-content: center;
   align-items: center;
   color: white;
-  background-color: #0CBD90;
+  background-color: $deep-teal-500;
   height: 48px;
   width: 100%;
   border: none;
@@ -14,5 +16,5 @@
 
 .button:hover {
   transition: 0.3s ease-in-out;
-  background-color: #029976;
+  background-color: $deep-teal-600;
 }

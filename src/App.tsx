@@ -2,12 +2,6 @@ import './App.scss';
 import io from 'socket.io-client';
 import { v4 as uuidv4 } from 'uuid';
 import React, { useState, useEffect } from 'react';
-import './styles.scss';
-import Input from './components/Input/Input';
-import Button from './components/Button/Button';
-import logo from './assets/logo.png';
-import Card from './components/Card/Card';
-import Hand from './components/Hand/Hand';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Landing, Home, Settings, Lobby } from './pages';
 

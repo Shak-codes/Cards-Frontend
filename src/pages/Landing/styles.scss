@@ -1,3 +1,5 @@
+@import '../../constants/colors.scss';
+
 * {
   z-index: 1;
 }
@@ -5,9 +7,12 @@
 .container {
     width: 100vw;
     height: 100vh;
-    background-color: #012d26;
+    background-color: $deep-teal-950;
     overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bg {
@@ -67,18 +72,14 @@
     z-index: 1;
 }
 
-.animated-rect {
-    transform-origin: center center;
-    animation: translatePattern 90s linear infinite, rotatePattern 180s linear infinite;
-}
+// .animated-rect {
+//     transform-origin: center center;
+//     animation: rotatePattern 10s linear infinite;
+// }
 
-@keyframes translatePattern {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-300%);
-    }
+.animated-rect {
+    transform-origin: 50% 50%;
+    animation: rotatePattern 120s linear infinite;
 }
 
 @keyframes rotatePattern {
