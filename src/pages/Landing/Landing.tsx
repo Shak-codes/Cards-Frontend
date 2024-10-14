@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.scss';
 import { ReactComponent as BGPattern } from '../../assets/background/animatedbackground.svg';
 import Button from '../../components/Button/Button';
+import Modal from '../../components/Modal/Modal';
 
 const Landing: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+
+  // Function to open the modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className='container'>
       <BGPattern className='bg'>
@@ -18,7 +30,7 @@ const Landing: React.FC = () => {
           <div className='auth'>
             <Button
               text='Log in!'
-              onClick={() => alert('Button clicked!')}
+              onClick={openModal}
             />
             <Button
               text='Sign up!'
@@ -27,6 +39,10 @@ const Landing: React.FC = () => {
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <h2>Modal Title</h2>
+        <p>This is the modal content. You can place any content here!</p>
+      </Modal>
     </div>
   );
 };
