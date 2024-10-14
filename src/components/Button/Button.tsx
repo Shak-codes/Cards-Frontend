@@ -1,18 +1,33 @@
 import React from 'react';
 import './styles.css';
 
-// Define the types for the props
-interface ButtonProps {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  label: string;            // The label text
-}
+type ButtonProps = {
+  text: string;
+  onClick?: () => void;
+};
 
-const Button: React.FC<ButtonProps> = ({ onClick, label }) => {
+// const StyledButton = styled.button<ButtonProps>`
+//   border-radius: ${({ borderRadius }) => borderRadius || '4px'};
+//   border: 2px solid ${({ outlineColor }) => outlineColor || '#000'};
+//   color: ${({ textColor }) => textColor || '#000'};
+//   background-color: ${({ backgroundColor }) => backgroundColor || '#fff'};
+//   padding: 10px 20px;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease, color 0.3s ease;
+
+//   &:hover {
+//     background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor || '#fff'};
+//     color: ${({ hoverTextColor }) => hoverTextColor || '#000'};
+//   }
+// `;
+
+const Button: React.FC<ButtonProps> = ({
+  text,
+  onClick,
+}) => {
   return (
-    <button className='button' onClick={onClick}>
-          <p className='button-label'>
-            {label}
-          </p>
+    <button onClick={onClick} className='button'>
+      {text}
     </button>
   );
 };

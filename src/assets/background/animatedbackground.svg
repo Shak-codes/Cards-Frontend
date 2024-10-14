@@ -4,9 +4,9 @@
       <animateTransform
         attributeName="patternTransform"
         type="rotate"
-        from="0 0 0"
-        to="360 0 0"
-        dur="120s"
+        from="0 50 50"
+        to="360 50 50"
+        dur="180s"
         repeatCount="indefinite"
       />
       <!-- Hearts -->

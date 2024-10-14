@@ -1,3 +1,7 @@
+* {
+  z-index: 1;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -8,37 +12,42 @@
 
 .bg {
     position: absolute;
+    z-index: -1;
 }
 
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .title {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .title1, .title2 {
-    margin: 0;
     color: azure;
     font-family: 'AcuminBold', sans-serif;
+    line-height: 1;
+    margin: 0;
 }
 
 .title1 {
+
     font-size: clamp(20px, 10vw, 200px);
 }
 
 .title2 {
     font-size: clamp(20px, 8vw, 180px);
-    margin-top: -4vw;
 }
 
 .tagline {
-    margin-top: -1vh;
+    flex-direction: column;
     display: flex;
     justify-content: flex-start;
     width: 40%;
@@ -48,17 +57,12 @@
     color: azure;
     font-family: 'AcuminLight', sans-serif;
     font-size: clamp(10px, 2vw, 100px);
-} 
-
-.animated-rect {
-animation: translatePattern 90s linear infinite;
 }
 
-@keyframes translatePattern {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-300%);
-    }
+.auth {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70%;
+    z-index: 1;
 }
