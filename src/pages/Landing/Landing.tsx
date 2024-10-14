@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './styles.scss';
 import { ReactComponent as BGPattern } from '../../assets/background/animatedbackground.svg';
 import Button from '../../components/Button/Button';
 

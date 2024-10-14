@@ -1,8 +1,8 @@
-import './App.css';
+import './App.scss';
 import io from 'socket.io-client';
 import { v4 as uuidv4 } from 'uuid';
 import React, { useState, useEffect } from 'react';
-import './styles.css';
+import './styles.scss';
 import Input from './components/Input/Input';
 import Button from './components/Button/Button';
 import logo from './assets/logo.png';
