@@ -32,7 +32,7 @@
 
 .input-label {
   position: relative;
-  top: -75%;
+  top: -1.9em;
   left: 10px;
   padding: 0 0.5%;
   font-size: 16px;
@@ -44,7 +44,7 @@
 
 .rounded-input:focus + .input-label,
 .input-label.active {
-  top: -125%;
+  top: -4.2em;
   font-size: 12px;
   color: #009975;
 }

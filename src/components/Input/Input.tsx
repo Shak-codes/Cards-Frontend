@@ -1,12 +1,11 @@
 import React from 'react';
 import './styles.scss';
 
-// Define the types for the props
 interface InputProps {
-  id: string;               // The id for the input and label
-  value: string;            // The value of the input
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; // The onChange handler for the input
-  label: string;            // The label text
+  id: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
 }
 
 const Input: React.FC<InputProps> = ({ id, value, onChange, label }) => {

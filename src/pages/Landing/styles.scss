@@ -1,93 +1,92 @@
 @import '../../constants/colors.scss';
 
 * {
-  z-index: 1;
+    z-index: 0;
 }
 
 .container {
-    width: 100vw;
-    height: 100vh;
-    background-color: $deep-teal-950;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: $deep-teal-950;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bg {
-    position: absolute;
-    z-index: -1;
-    transition: filter 0.3s ease;
+  position: absolute;
+  z-index: -1;
+  transition: filter 0.3s ease;
 }
 
 .blur {
-    filter: blur(5px);
+  filter: blur(5px);
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    transition: filter 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  transition: filter 0.3s ease;
 }
 
 .title {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.title1, .title2 {
-    color: azure;
-    font-family: 'AcuminBold', sans-serif;
-    line-height: 1;
-    margin: 0;
+.title1,
+.title2 {
+  color: azure;
+  font-family: 'AcuminBold', sans-serif;
+  line-height: 1;
+  margin: 0;
 }
 
 .title1 {
-
-    font-size: clamp(20px, 10vw, 200px);
+  font-size: clamp(20px, 10vw, 200px);
 }
 
 .title2 {
-    font-size: clamp(20px, 8vw, 180px);
+  font-size: clamp(20px, 8vw, 180px);
 }
 
 .tagline {
-    flex-direction: column;
-    display: flex;
-    justify-content: flex-start;
-    width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 40%;
 }
 
 .desc {
-    color: azure;
-    font-family: 'AcuminLight', sans-serif;
-    font-size: clamp(10px, 2vw, 100px);
+  color: azure;
+  font-family: 'AcuminLight', sans-serif;
+  font-size: clamp(10px, 2vw, 100px);
 }
 
 .auth {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 70%;
-    z-index: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70%;
 }
 
 .animated-rect {
-    transform-origin: 50% 50%;
-    animation: rotatePattern 120s linear infinite;
+  transform-origin: 50% 50%;
+  animation: rotatePattern 120s linear infinite;
 }
 
 @keyframes rotatePattern {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
