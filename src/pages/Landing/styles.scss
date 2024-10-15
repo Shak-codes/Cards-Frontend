@@ -18,6 +18,11 @@
 .bg {
     position: absolute;
     z-index: -1;
+    transition: filter 0.3s ease;
+}
+
+.blur {
+    filter: blur(5px);
 }
 
 .header {
@@ -25,6 +30,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    transition: filter 0.3s ease;
 }
 
 .title {
@@ -71,11 +77,6 @@
     height: 70%;
     z-index: 1;
 }
-
-// .animated-rect {
-//     transform-origin: center center;
-//     animation: rotatePattern 10s linear infinite;
-// }
 
 .animated-rect {
     transform-origin: 50% 50%;

@@ -18,9 +18,9 @@ const Landing: React.FC = () => {
   };
   return (
     <div className='container'>
-      <BGPattern className='bg'>
+      <BGPattern className={`bg ${isModalOpen ? 'blur' : ''}`}>
       </BGPattern>
-      <div className='header'>
+      <div className={`header ${isModalOpen ? 'blur' : ''}`}>
         <div className='title'>
           <p className="title1">CARD</p>
           <p className="title2">GAMES</p>
