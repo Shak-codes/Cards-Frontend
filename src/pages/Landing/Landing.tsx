@@ -4,6 +4,7 @@ import { ReactComponent as BGPattern } from '../../assets/background/animatedbac
 import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal';
 import Input from '../../components/Input/Input';
+import { useNavigate } from 'react-router-dom';
 
 const Landing: React.FC = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -21,6 +22,12 @@ const Landing: React.FC = () => {
   const handleVerifyPassword = (e: React.ChangeEvent<HTMLInputElement>) => setVerifyPassword(e.target.value);
   const handleSecurityPrompt = (e: React.ChangeEvent<HTMLInputElement>) => setSecurityPrompt(e.target.value);
   const handleSecurityAnswer = (e: React.ChangeEvent<HTMLInputElement>) => setSecurityAnswer(e.target.value);
+
+  const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate('/home');
+  };
 
   const openLogin = () => {
     setIsLoginOpen(true);
@@ -75,7 +82,7 @@ const Landing: React.FC = () => {
         <h2>Log in</h2>
         <Input id='email' value={email} onChange={handleEmail} label='Email'/>
         <Input id='password' value={password} onChange={handlePassword} label='Password' />
-        <Button text='Submit' onClick={closeLogin} />
+        <Button text='Submit' onClick={goToHome} />
       </Modal>
     </div>
   );
