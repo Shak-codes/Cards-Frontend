@@ -1,7 +1,8 @@
 @import '../../constants/colors.scss';
 
+
 * {
-    z-index: 0;
+    z-index: 1;
 }
 
 .container {
@@ -17,8 +18,9 @@
 
 .bg {
   position: absolute;
-  z-index: -1;
   transition: filter 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .blur {
@@ -39,12 +41,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: -1;
 }
 
 .title1,
 .title2 {
   color: azure;
-  font-family: 'AcuminBold', sans-serif;
+  font-family: 'XBold', sans-serif;
   line-height: 1;
   margin: 0;
 }
@@ -66,27 +69,14 @@
 
 .desc {
   color: azure;
-  font-family: 'AcuminLight', sans-serif;
+  font-family: 'Bold', sans-serif;
   font-size: clamp(10px, 2vw, 100px);
 }
 
 .auth {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 70%;
-}
-
-.animated-rect {
-  transform-origin: 50% 50%;
-  animation: rotatePattern 120s linear infinite;
-}
-
-@keyframes rotatePattern {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }

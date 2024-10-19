@@ -1,0 +1,13 @@
+.animated-rect {
+  transform-origin: 50% 50%;
+  animation: rotatePattern 120s linear infinite;
+}
+
+@keyframes rotatePattern {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import './styles.scss';
+import styles from './styles.module.scss';
 import { ReactComponent as BGPattern } from '../../assets/background/animatedbackground.svg';
 import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal';
 import Input from '../../components/Input/Input';
 import { useNavigate } from 'react-router-dom';
+import '../../assets/background/bg.scss'
 
 const Landing: React.FC = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -46,17 +47,16 @@ const Landing: React.FC = () => {
   };
 
   return (
-    <div className='container'>
-      <BGPattern className={`bg ${isLoginOpen || isSignupOpen ? 'blur' : ''}`}>
-      </BGPattern>
-      <div className={`header ${isLoginOpen || isSignupOpen ? 'blur' : ''}`}>
-        <div className='title'>
-          <p className="title1">CARD</p>
-          <p className="title2">GAMES</p>
+    <div className={styles.container}>
+      <div className={`${styles.header} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}>
+        <BGPattern className={`${styles.bg} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}/>
+        <div className={styles.title}>
+          <p className={styles.title1}>CARD</p>
+          <p className={styles.title2}>GAMES</p>
         </div>
-        <div className='tagline'>
-          <h1 className="desc">Enjoy your favorite card games on your terms. Play with friends anytime, anywhere, at your own pace whenever it fits your schedule.</h1>
-          <div className='auth'>
+        <div className={styles.tagline}>
+          <h1 className={styles.desc}>Enjoy your favorite card games on your terms. Play with friends anytime, anywhere, at your own pace whenever it fits your schedule.</h1>
+          <div className={styles.auth}>
             <Button
               text='Log in!'
               onClick={openLogin}

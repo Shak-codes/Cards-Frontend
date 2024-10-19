@@ -1,0 +1,56 @@
+@import '../../constants/colors.scss';
+
+* {
+    z-index: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $deep-teal-950;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg {
+  position: absolute;
+  z-index: -1;
+  transition: filter 0.3s ease;
+}
+
+.header {
+  flex: 1;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  transition: filter 0.3s ease;
+}
+
+.title {
+  border: 1px solid;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title1,
+.title2 {
+  color: azure;
+  font-family: 'XBold', sans-serif;
+  line-height: 1;
+  margin: 0;
+  font-size: clamp(20px, 8vw, 100px);
+}
+
+.nav {
+  border: 1px solid black;
+  flex-direction: column;
+  flex: 1;
+}

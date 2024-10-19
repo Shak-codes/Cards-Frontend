@@ -1,34 +1,48 @@
 @font-face {
-     font-family: 'AcuminBold';
-     src: url('./assets/fonts/Acumin-BdPro.otf') format('opentype');
+     font-family: 'Black';
+     src: url('./assets/fonts/AktivGrotesk-Black.ttf') format('truetype');
      font-weight: normal;
      font-style: normal;
 }
    
 @font-face {
-     font-family: 'Acumin';
-     src: url('./assets/fonts/Acumin-RPro.otf') format('truetype');
+     font-family: 'Bold';
+     src: url('./assets/fonts/AktivGrotesk-Bold.ttf') format('truetype');
      font-weight: normal;
      font-style: normal;
 }
 
 @font-face {
-     font-family: 'AcuminThin';
-     src: url('./assets/fonts/Acumin-TPro.ttf') format('truetype');
+     font-family: 'Hairline';
+     src: url('./assets/fonts/AktivGrotesk-Hairline.ttf') format('truetype');
      font-weight: normal;
      font-style: normal;
 }
 
 @font-face {
-     font-family: 'AcuminLight';
-     src: url('./assets/fonts/Acumin-LPro.ttf') format('truetype');
+     font-family: 'Light';
+     src: url('./assets/fonts/AktivGrotesk-Light.ttf') format('truetype');
      font-weight: normal;
      font-style: normal;
 }
 
 @font-face {
-     font-family: 'AcuminExtraLight';
-     src: url('./assets/fonts/Acumin-ElPro.ttf') format('opentype');
+     font-family: 'Medium';
+     src: url('./assets/fonts/AktivGrotesk-Medium.ttf') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'Thin';
+     src: url('./assets/fonts/AktivGrotesk-Thin.ttf') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'XBold';
+     src: url('./assets/fonts/AktivGrotesk-XBold.ttf') format('truetype');
      font-weight: normal;
      font-style: normal;
 }
