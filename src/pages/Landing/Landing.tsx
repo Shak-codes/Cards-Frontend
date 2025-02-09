@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal';
 import Input from '../../components/Input/Input';
 import { useNavigate } from 'react-router-dom';
-import '../../assets/background/bg.scss'
+import AnimatedBackground from '../../assets/background/AnimatedBackground';
 
 const Landing: React.FC = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -49,7 +49,8 @@ const Landing: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={`${styles.header} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}>
-        <BGPattern className={`${styles.bg} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}/>
+        {/*<BGPattern className={`${styles.bg} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}/>*/}
+        <AnimatedBackground className={`${styles.bg} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}/>
         <div className={styles.title}>
           <p className={styles.title1}>CARD</p>
           <p className={styles.title2}>GAMES</p>

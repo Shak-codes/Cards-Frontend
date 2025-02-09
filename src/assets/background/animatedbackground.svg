@@ -11,7 +11,7 @@
       <text x="60" y="80" font-size="30" fill="black" className="pip">♣</text>
     </pattern>
   </defs>
-  <g class="animated-rect-group">
-    <rect width="150vw" height="250vh" fill="url(#suitPattern)" fill-opacity="0.3" stroke="black" class="animated-rect"/>
+  <g className="animated-rect-group">
+    <rect width="150vw" height="250vh" fill="url(#suitPattern)" fill-opacity="0.3" stroke="black" className="animated-rect"/>
   </g>
 </svg>
