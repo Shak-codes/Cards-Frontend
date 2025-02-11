@@ -9,7 +9,6 @@ import AnimatedBackground from '../../assets/background/AnimatedBackground';
 import BearImg from '../../assets/bear/watch_bear_1.png'
 
 const Landing: React.FC = () => {
-  console.log("Imported Image:", BearImg);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [username, setUsername] = useState<string>('');
@@ -52,11 +51,11 @@ const Landing: React.FC = () => {
       setState(
         Object.values(glob)
           .map((asset) => asset.default)
-          .sort(
-            (a, b) =>
-              parseInt(a.match(/(\d+)-.*\.png$/)?.[1] || "0") -
-              parseInt(b.match(/(\d+)-.*\.png$/)?.[1] || "0")
-          )
+          .sort((a, b) => {
+            const numA = parseInt(a.match(/(\d+)\.png$/)?.[1] || "0", 10);
+            const numB = parseInt(b.match(/(\d+)\.png$/)?.[1] || "0", 10);
+            return numA - numB;
+          })
       );
     };
 
