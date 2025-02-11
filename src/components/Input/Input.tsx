@@ -4,11 +4,12 @@ import './styles.scss';
 interface InputProps {
   id: string;
   value: string;
+  onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
 }
 
-const Input: React.FC<InputProps> = ({ id, value, onChange, label }) => {
+const Input: React.FC<InputProps> = ({ id, value, onFocus, onChange, label }) => {
   return (
     <div className="input-container">
       <input 
@@ -16,6 +17,7 @@ const Input: React.FC<InputProps> = ({ id, value, onChange, label }) => {
         id={id} 
         className={`rounded-input ${value ? 'active' : ''}`}
         value={value} 
+        onFocus={onFocus}
         onChange={onChange} 
       />
       <label 

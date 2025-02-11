@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [svgr() as PluginOption, react()],
   resolve: {
     alias: {
-      '@': '/src', // Optional: Use `@/` instead of `src/` for cleaner imports
+      '@/': '/src/', // Optional: Use `@/` instead of `src/` for cleaner imports
     },
   },
   server: {

@@ -1,12 +1,10 @@
 import React from 'react';
-import { ReactComponent as BGPattern } from '../../assets/background/animatedbackground.svg';
 import Button from '../../components/Button/Button';
 import styles from './styles.module.scss';
 
 const Home: React.FC = () => {
   return (
     <div className={styles.container}>
-      <BGPattern className={styles.bg} />
       <div className={styles.header}>
         <div className={styles.title}>
             <p className={styles.title1}>WELCOME,</p>
