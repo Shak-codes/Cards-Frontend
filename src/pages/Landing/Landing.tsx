@@ -93,14 +93,14 @@ const Landing: React.FC = () => {
           </div>
         </div>
       </div>
-      <Modal isOpen={isSignupOpen} onClose={closeSignup}>
+      <Modal isOpen={isSignupOpen} onClose={closeSignup} onClick={() => setCurrentFocus("NONE")}>
         <h2>Create an account</h2>
         <Input id='username' value={username} onChange={handleUsername} label='Username'/>
         {/* <Input id='securityPrompt' value={securityPrompt} onChange={handleSecurityPrompt} label='Security Prompt' />
         <Input id='securityAnswer' value={securityAnswer} onChange={handleSecurityAnswer} label='Security Answer' />
         <Button text='Submit' onClick={closeSignup} /> */}
       </Modal>
-      <Modal isOpen={isLoginOpen} onClose={closeLogin}>
+      <Modal isOpen={isLoginOpen} onClose={closeLogin} onClick={() => setCurrentFocus("NONE")}>
         <h2>Log in</h2>
         <InputWatcher
           focus={currentFocus}

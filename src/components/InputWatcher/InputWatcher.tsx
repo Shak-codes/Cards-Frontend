@@ -14,15 +14,23 @@ const InputWatcher: React.FC<InputWatcherProps> = ({ focus, emailLength, watchIm
   useEffect(() => {
     if (!watchImgs.length || !hideImgs.length) return;
 
-    if (focus === "NONE") setCurrentImg(watchImgs[0]);
+    if (focus === "NONE" && prevFocus !== "NONE") {
+      [...watchImgs].slice(0, 4).reverse().forEach((img, idx) => {
+        setTimeout(() => setCurrentImg(img), idx * 50)
+      })
+    }
+    else if (focus === "NONE") setCurrentImg(watchImgs[0]);
     else if (focus === "OTHER" && prevFocus === "PASSWORD") {
       [...hideImgs].reverse().forEach((img, index) => {
         setTimeout(() => setCurrentImg(img), index * 50);
       });
     } else if (focus === "OTHER" && emailLength === 0) {
-      setCurrentImg(watchImgs[4]);
+      [...watchImgs].slice(0, 4).forEach((img, idx) => {
+        setTimeout(() => setCurrentImg(img), idx * 50)
+      })
     } else if (focus === "OTHER") {
-      setCurrentImg(watchImgs[Math.min(4+Math.floor(emailLength/2.5), 20)]);
+      const index = Math.min(4+Math.floor(emailLength/1.9), 20);
+      setCurrentImg(watchImgs[index]);
     } else {
       hideImgs.forEach((img, index) => {
         setTimeout(() => setCurrentImg(img), index * 50);
