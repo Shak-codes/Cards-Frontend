@@ -6,7 +6,6 @@ import Input from '../../components/Input/Input';
 import InputWatcher from '../../components/InputWatcher/InputWatcher';
 import { useNavigate } from 'react-router-dom';
 import AnimatedBackground from '../../assets/background/AnimatedBackground';
-import BearImg from '../../assets/bear/watch_bear_1.png'
 
 const Landing: React.FC = () => {
   const [displayLogin, setDisplayLogin] = useState(false);
