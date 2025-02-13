@@ -9,8 +9,8 @@ import AnimatedBackground from '../../assets/background/AnimatedBackground';
 import BearImg from '../../assets/bear/watch_bear_1.png'
 
 const Landing: React.FC = () => {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [displayLogin, setDisplayLogin] = useState(false);
+  const [displaySignup, setDisplaySignup] = useState(false);
   const [signupValues, setSignupValues] = useState({ 
     email: "", 
     password: "", 
@@ -52,30 +52,26 @@ const Landing: React.FC = () => {
     });
   };
 
-
-
   const navigate = useNavigate();
 
   const goToHome = () => {
     navigate('/home');
   };
 
-  const openLogin = () => {
-    setIsLoginOpen(true);
+  const toggleSignup = () => {
+    if (displaySignup) {
+      resetSignupValues();
+      setCurrentFocus("NONE");
+    }
+    setDisplaySignup(!displaySignup);
   };
 
-  const closeLogin = () => {
-    resetLoginValues();
-    setIsLoginOpen(false);
-  };
-
-    const openSignup = () => {
-    setIsSignupOpen(true);
-  };
-
-  const closeSignup = () => {
-    resetSignupValues();
-    setIsSignupOpen(false);
+  const toggleLogin = () => {
+    if (displayLogin) {
+      resetLoginValues();
+      setCurrentFocus("NONE");
+    }
+    setDisplayLogin(!displayLogin);
   };
 
   useEffect(() => {
@@ -108,9 +104,9 @@ const Landing: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.header} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}>
+      <div className={`${styles.header} ${displayLogin || displaySignup ? styles.blur : ''}`}>
         {/*<BGPattern className={`${styles.bg} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}/>*/}
-        <AnimatedBackground className={`${styles.bg} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}/>
+        <AnimatedBackground className={`${styles.bg} ${displayLogin || displaySignup ? styles.blur : ''}`}/>
         <div className={styles.title}>
           <p className={styles.title1}>CARD</p>
           <p className={styles.title2}>GAMES</p>
@@ -120,16 +116,16 @@ const Landing: React.FC = () => {
           <div className={styles.auth}>
             <Button
               text='Log in!'
-              onClick={openLogin}
+              onClick={toggleLogin}
             />
             <Button
               text='Sign up!'
-              onClick={openSignup}
+              onClick={toggleSignup}
             />
           </div>
         </div>
       </div>
-      <Modal isOpen={isSignupOpen} onClose={closeSignup} onClick={() => setCurrentFocus("NONE")}>
+      <Modal isOpen={displaySignup} onClose={toggleSignup} onClick={() => setCurrentFocus("NONE")}>
         <h2>Create an account</h2>
         <Input 
           id='email' 
@@ -162,11 +158,11 @@ const Landing: React.FC = () => {
           value={signupValues.securityAnswer} 
           onChange={(e) => handleSignupChange("securityAnswer", e.target.value)} 
           label='Security Answer' />
-        <Button text='Submit' onClick={closeSignup} />
+        <Button text='Submit' onClick={toggleSignup} />
       </Modal>
       <Modal 
-        isOpen={isLoginOpen} 
-        onClose={closeLogin} 
+        isOpen={displayLogin} 
+        onClose={toggleLogin} 
         onClick={() => setCurrentFocus("NONE")}
       >
         <h2>Log in</h2>
