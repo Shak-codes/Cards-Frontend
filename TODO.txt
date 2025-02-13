@@ -16,6 +16,7 @@
     - Skip player's turn
     - Picking up a card if you cant go
     - Storing user stats
+    - Confirmation for playing card(s)
 
 - Animations
     - Deck shuffling
