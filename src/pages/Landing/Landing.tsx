@@ -35,6 +35,25 @@ const Landing: React.FC = () => {
     setLoginValues(prev => ({ ...prev, [field]: value }));
   };
 
+  const resetSignupValues = () => {
+    setSignupValues({
+      email: "",
+      password: "",
+      confirmPassword: "",
+      securityPrompt: "",
+      securityAnswer: "",
+    });
+  };
+
+  const resetLoginValues = () => {
+    setLoginValues({
+      email: "",
+      password: "",
+    });
+  };
+
+
+
   const navigate = useNavigate();
 
   const goToHome = () => {
@@ -46,6 +65,7 @@ const Landing: React.FC = () => {
   };
 
   const closeLogin = () => {
+    resetLoginValues();
     setIsLoginOpen(false);
   };
 
@@ -54,6 +74,7 @@ const Landing: React.FC = () => {
   };
 
   const closeSignup = () => {
+    resetSignupValues();
     setIsSignupOpen(false);
   };
 
