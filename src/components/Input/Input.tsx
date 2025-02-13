@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.scss';
 
 interface InputProps {
@@ -7,13 +7,16 @@ interface InputProps {
   onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
+  type?: "text" | "password";
 }
 
-const Input: React.FC<InputProps> = ({ id, value, onFocus, onChange, label }) => {
+const Input: React.FC<InputProps> = ({ id, value, onFocus, onChange, label, type = 'text' }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="input-container">
       <input 
-        type="text" 
+        type={type === "password" && !showPassword ? "password" : "text"} 
         id={id} 
         className={`rounded-input ${value ? 'active' : ''}`}
         value={value} 

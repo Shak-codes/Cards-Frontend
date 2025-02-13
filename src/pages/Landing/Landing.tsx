@@ -11,14 +11,29 @@ import BearImg from '../../assets/bear/watch_bear_1.png'
 const Landing: React.FC = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [username, setUsername] = useState<string>('');
+  const [signupValues, setSignupValues] = useState({ 
+    email: "", 
+    password: "", 
+    confirmPassword: "", 
+    securityPrompt: "", 
+    securityAnswer: "" 
+  });
+  const [loginValues, setLoginValues] = useState({
+    email: "",
+    password: ""
+  })
 
   const [hideBearImgs, setHideBearImgs] = useState<string[]>([]);
   const [watchBearImgs, setWatchBearImgs] = useState<string[]>([]);
-  const [values, setValues] = useState({ email: "", password: "" });
   const [currentFocus, setCurrentFocus] = useState<"OTHER" | "PASSWORD" | "NONE">("NONE");
 
-  const handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value);
+  const handleSignupChange = (field: keyof typeof signupValues, value: string) => {
+    setSignupValues(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleLoginChange = (field: keyof typeof loginValues, value: string) => {
+    setLoginValues(prev => ({ ...prev, [field]: value }));
+  };
 
   const navigate = useNavigate();
 
@@ -95,31 +110,66 @@ const Landing: React.FC = () => {
       </div>
       <Modal isOpen={isSignupOpen} onClose={closeSignup} onClick={() => setCurrentFocus("NONE")}>
         <h2>Create an account</h2>
-        <Input id='username' value={username} onChange={handleUsername} label='Username'/>
-        {/* <Input id='securityPrompt' value={securityPrompt} onChange={handleSecurityPrompt} label='Security Prompt' />
-        <Input id='securityAnswer' value={securityAnswer} onChange={handleSecurityAnswer} label='Security Answer' />
-        <Button text='Submit' onClick={closeSignup} /> */}
+        <Input 
+          id='email' 
+          value={signupValues.email} 
+          onChange={(e) => handleSignupChange("email", e.target.value)} 
+          label='Email'
+        />
+        <Input 
+          id='password' 
+          value={signupValues.password} 
+          onChange={(e) => handleSignupChange("password", e.target.value)} 
+          label='Password'
+          type="password"
+        />
+        <Input 
+          id='confirmPassword' 
+          value={signupValues.confirmPassword} 
+          onChange={(e) => handleSignupChange("confirmPassword", e.target.value)} 
+          label='Confirm Password'
+          type="password"
+        />
+        <Input 
+          id='securityPrompt' 
+          value={signupValues.securityPrompt} 
+          onChange={(e) => handleSignupChange("securityPrompt", e.target.value)} 
+          label='Security Prompt'
+        />
+        <Input 
+          id='securityAnswer' 
+          value={signupValues.securityAnswer} 
+          onChange={(e) => handleSignupChange("securityAnswer", e.target.value)} 
+          label='Security Answer' />
+        <Button text='Submit' onClick={closeSignup} />
       </Modal>
-      <Modal isOpen={isLoginOpen} onClose={closeLogin} onClick={() => setCurrentFocus("NONE")}>
+      <Modal 
+        isOpen={isLoginOpen} 
+        onClose={closeLogin} 
+        onClick={() => setCurrentFocus("NONE")}
+      >
         <h2>Log in</h2>
         <InputWatcher
           focus={currentFocus}
-          emailLength={values.email.length}
+          emailLength={loginValues.email.length}
           watchImgs={watchBearImgs}
           hideImgs={hideBearImgs}
         />
         <Input 
           id='email' 
-          value={values.email} 
+          value={loginValues.email} 
           onFocus={() => setCurrentFocus("OTHER")}
-          onChange={(e) => setValues({ ...values, email: e.target.value })}
-          label='Email'/>
+          onChange={(e) => handleLoginChange("email", e.target.value)}
+          label='Email'
+        />
         <Input 
           id='password' 
-          value={values.password} 
+          value={loginValues.password} 
           onFocus={() => setCurrentFocus("PASSWORD")}
-          onChange={(e) => setValues({ ...values, password: e.target.value })}
-          label='Password' />
+          onChange={(e) => handleLoginChange("password", e.target.value)}
+          label='Password'
+          type="password"
+        />
         <Button text='Submit' onClick={goToHome} />
       </Modal>
     </div>
