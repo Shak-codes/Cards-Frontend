@@ -1,0 +1,34 @@
+- Backend
+    - Password hashing with argon2
+    - Email hashhing with argon2
+    - Security response hashing
+    - Handling stats
+    - Login
+    - Signup
+    - Redo password
+
+- Game Specifications
+    - Custom Game logic
+    - Determining Play Order(random)
+    - Making a player pick up cards
+    - Stacking 2s and or QoS
+    - "Wild" cards 
+    - Skip player's turn
+    - Picking up a card if you cant go
+    - Storing user stats
+
+- Animations
+    - Deck shuffling
+    - Placing a card
+    - Picking up a card
+    - Opponent picking up a card
+    - Opponent placing a card
+    - +2/+5 animation
+
+- Sound
+    - Deck shuffling
+    - Placing a card
+    - Sifting through cards
+    - Picking up a card
+    - +2/+5 sound effect
+        - Stacking sound effect like in valorant when you stack more +2/+5s
