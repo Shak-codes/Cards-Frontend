@@ -6,6 +6,14 @@
     - Login ✔️
     - Signup ✔️
     - Redo password
+    - Testing
+
+- Frontend
+    - Show errors on input if email is already used to create an account
+    - Show error on input if email and password are incorrect on login
+    - Show error if security response is incorrect *In future after everything else*
+    - Loading animation on submit
+    - Checkmark on success
 
 - Game Specifications
     - Custom Game logic
@@ -33,8 +41,3 @@
     - Picking up a card
     - +2/+5 sound effect
         - Stacking sound effect like in valorant when you stack more +2/+5s
-
-- Frontend
-    - Show errors on input if email is already used to create an account
-    - Show error on input if email and password are incorrect on login
-    - Show error if security response is incorrect *In future after everything else*
