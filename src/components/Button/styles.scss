@@ -1,20 +1,86 @@
 @import '../../constants/colors.scss';
 
 .button {
-  justify-content: center;
+  display: flex;
+  justify-content: center; // Center content by default
   align-items: center;
   color: white;
   background-color: $deep-teal-500;
-  height: 48px;
+  height: 3rem;
   width: 100%;
   border: none;
   border-radius: 5px;
   z-index: 1;
   margin: 0 5px 0 5px;
-  transition: 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: transform 0.4s ease; // Use transform for smooth shifting
+  }
+
+  &.loading .button-content {
+    transform: translateX(-12px); // Shift text to the left smoothly
+  }
+
+  &.success .button-content {
+    transform: translateX(-12px); // Shift text to the left smoothly
+  }
+
+  &.loading {
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: $deep-teal-600;
+  }
 }
 
-.button:hover {
-  transition: 0.3s ease-in-out;
-  background-color: $deep-teal-600;
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3.5px solid transparent;
+  border-top: 3.5px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite, fade-in-out 0.7s ease-in-out;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.checkmark {
+  position: relative;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #fff;
+  animation: fade-in-out 0.7s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button.loading .loader {
+  opacity: 1; 
+  visibility: visible;
+}
+
+.button.success .checkmark {
+  opacity: 1; 
+  visibility: visible; 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fade-in-out {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

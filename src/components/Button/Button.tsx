@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.scss';
 
 type ButtonProps = {
   text: string;
-  onClick?: () => void;
+  onClick?: () => Promise<void> | void; // Support async actions
 };
 
 // const StyledButton = styled.button<ButtonProps>`
@@ -25,9 +25,30 @@ const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
 }) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleClick = async () => {
+    if (onClick) {
+      setLoading(!loading);
+      setTimeout(() => {
+        setLoading(false);
+        setSuccess(true);
+      }, 3000)
+      //  // Wait for action to complete (if async)
+      // setLoading(false); // Stop loading animation
+    }
+  };
   return (
-    <button onClick={onClick} className='button'>
-      {text}
+    <button
+      onClick={handleClick}
+      className={`button ${loading ? 'loading' : ''}${success ? 'success' : ''}`}
+    >
+      <div className="button-content">
+        {text}
+      </div>
+      {loading && <div className="loader"></div>}
+      {success && <div className="checkmark">✓</div>}
     </button>
   );
 };

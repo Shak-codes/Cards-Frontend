@@ -92,13 +92,14 @@ const Landing: React.FC = () => {
 
     // Example usage to load "watch" and "hide" images
     loadImages(
-      import.meta.glob("../../assets/bear/watch_bear_*.png", { eager: true }),
+      import.meta.glob("/src/assets/bear/watch_bear_*.png", { eager: true }),
       setWatchBearImgs
     );
     loadImages(
-      import.meta.glob("../../assets/bear/hide_bear_*.png", { eager: true }),
+      import.meta.glob("/src/assets/bear/hide_bear_*.png", { eager: true }),
       setHideBearImgs
     );
+
   }, []);
 
   return (

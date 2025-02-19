@@ -1,19 +1,21 @@
 - Backend
     - Password hashing with argon2 ✔️
     - Email hashhing with argon2 ✔️
-    - Security response hashing
-    - Handling stats
+    - Security response hashing ✔️
+    - Handling stats ✔️
     - Login ✔️
     - Signup ✔️
     - Redo password
-    - Testing
+    - Testing ✔️
 
 - Frontend
+    - Constants for consistent and responsive design(Priority)
     - Show errors on input if email is already used to create an account
     - Show error on input if email and password are incorrect on login
     - Show error if security response is incorrect *In future after everything else*
     - Loading animation on submit
     - Checkmark on success
+    - Debounce email check?(Potentially not needed)
 
 - Game Specifications
     - Custom Game logic
