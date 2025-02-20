@@ -11,6 +11,7 @@ const Landing: React.FC = () => {
   const [displayLogin, setDisplayLogin] = useState(false);
   const [displaySignup, setDisplaySignup] = useState(false);
   const [signupValues, setSignupValues] = useState({ 
+    username: "",
     email: "", 
     password: "", 
     confirmPassword: "", 
@@ -26,6 +27,85 @@ const Landing: React.FC = () => {
   const [watchBearImgs, setWatchBearImgs] = useState<string[]>([]);
   const [currentFocus, setCurrentFocus] = useState<"OTHER" | "PASSWORD" | "NONE">("NONE");
 
+  const handleRegister = async () => {
+    const { username, email, password, confirmPassword, securityPrompt, securityAnswer } = signupValues;
+
+    // Basic validation (e.g., check if passwords match)
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    // Prepare the request body
+    const requestBody = {
+      username,
+      email,
+      password,
+      securityPrompt,
+      securityAnswer,
+    };
+
+    try {
+      // Perform the POST request
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      // Parse the response
+      const data = await response.json();
+
+      // Handle the response
+      if (response.ok) {
+        console.log("User registered successfully:", data);
+        navigate('/home');
+        // Optionally, you can redirect the user or update the UI
+      } else {
+        console.error("Registration failed:", data.message);
+        alert(`Registration failed: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+      alert("An error occurred during registration. Please try again.");
+    }
+  };
+
+  const handleLogin = async () => {
+    const { email, password } = loginValues;
+
+    const requestBody = {
+      email,
+      password,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Login successful:", data);
+        localStorage.setItem("token", data.token);
+        navigate('/home');
+      } else {
+        console.error("Login failed:", data.message);
+        alert(`Login failed: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred during login. Please try again.");
+    }
+  };
+
   const handleSignupChange = (field: keyof typeof signupValues, value: string) => {
     setSignupValues(prev => ({ ...prev, [field]: value }));
   };
@@ -36,6 +116,7 @@ const Landing: React.FC = () => {
 
   const resetSignupValues = () => {
     setSignupValues({
+      username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -128,6 +209,12 @@ const Landing: React.FC = () => {
       <Modal isOpen={displaySignup} onClose={toggleSignup} onClick={() => setCurrentFocus("NONE")}>
         <h2>Create an account</h2>
         <Input 
+          id='username' 
+          value={signupValues.username} 
+          onChange={(e) => handleSignupChange("username", e.target.value)} 
+          label='Username'
+        />
+        <Input 
           id='email' 
           value={signupValues.email} 
           onChange={(e) => handleSignupChange("email", e.target.value)} 
@@ -158,7 +245,7 @@ const Landing: React.FC = () => {
           value={signupValues.securityAnswer} 
           onChange={(e) => handleSignupChange("securityAnswer", e.target.value)} 
           label='Security Answer' />
-        <Button text='Submit' onClick={toggleSignup} />
+        <Button text='Submit' onClick={handleRegister} animated/>
       </Modal>
       <Modal 
         isOpen={displayLogin} 
@@ -187,7 +274,7 @@ const Landing: React.FC = () => {
           label='Password'
           type="password"
         />
-        <Button text='Submit' onClick={goToHome} />
+        <Button text='Submit' onClick={handleLogin} />
       </Modal>
     </div>
   );

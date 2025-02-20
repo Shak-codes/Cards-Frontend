@@ -4,6 +4,7 @@ import './styles.scss';
 type ButtonProps = {
   text: string;
   onClick?: () => Promise<void> | void; // Support async actions
+  animated?: boolean;
 };
 
 // const StyledButton = styled.button<ButtonProps>`
@@ -24,20 +25,19 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
+  animated
 }) => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const handleClick = async () => {
-    if (onClick) {
+    if (onClick && animated) {
       setLoading(!loading);
-      setTimeout(() => {
-        setLoading(false);
-        setSuccess(true);
-      }, 3000)
-      //  // Wait for action to complete (if async)
-      // setLoading(false); // Stop loading animation
-    }
+      await onClick();
+      setLoading(false);
+      setSuccess(true);
+      return;
+    } else if (onClick) await onClick();
   };
   return (
     <button
