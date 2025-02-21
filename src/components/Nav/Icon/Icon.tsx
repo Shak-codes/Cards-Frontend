@@ -20,9 +20,10 @@ import {
 
 type IconProps = {
   variant: "Home" | "Leaderboards" | "History" | "Friends" | "Stats" | "Settings" | "Logout";
+  onClick?: () => Promise<void> | void;
 };
 
-const Icon: React.FC<IconProps> = ({ variant }) => {
+const Icon: React.FC<IconProps> = ({ variant, onClick }) => {
   const outlineMap = {
     Home: HomeOutline,
     Leaderboards: LeaderboardsOutline,
@@ -50,7 +51,7 @@ const Icon: React.FC<IconProps> = ({ variant }) => {
     <>
       {/* Icon Wrapper (Keeps both icons stacked) */}
       <div className="IconFlexWrapper">
-        <div className="IconStack">
+        <div className="IconStack" onClick={onClick}>
           {/* Outlined Icon (Default) */}
           <IconOutline
             sx={{

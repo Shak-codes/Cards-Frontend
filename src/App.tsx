@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import { v4 as uuidv4 } from 'uuid';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Landing, Home, Settings, Lobby } from './pages';
+import { Landing, Home, Leaderboards, History, Friends, Stats, Settings, Lobby } from './pages';
 
 const socket = io("http://localhost:3001")
 
@@ -15,6 +15,10 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/leaderboards" element={<Leaderboards />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/friends" element={<Friends />} />
+        <Route path="/stats" element={<Stats />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/lobby" element={<Lobby />} />
       </Routes>
