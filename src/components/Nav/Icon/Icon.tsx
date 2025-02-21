@@ -16,6 +16,7 @@ import {
   Settings as Settings,
   Logout as Logout,
 } from "@mui/icons-material";
+import { useLocation } from "react-router-dom";
 
 
 type IconProps = {
@@ -24,6 +25,22 @@ type IconProps = {
 };
 
 const Icon: React.FC<IconProps> = ({ variant, onClick }) => {
+  const location = useLocation();
+
+  const currentPath = location.pathname.toLowerCase();
+
+  const routeMap: Record<IconProps["variant"], string> = {
+    Home: "/home",
+    Leaderboards: "/leaderboards",
+    History: "/history",
+    Friends: "/friends",
+    Stats: "/stats",
+    Settings: "/settings",
+    Logout: "/logout",
+  };
+
+  const isActive = currentPath === routeMap[variant];
+
   const outlineMap = {
     Home: HomeOutline,
     Leaderboards: LeaderboardsOutline,
@@ -61,7 +78,7 @@ const Icon: React.FC<IconProps> = ({ variant, onClick }) => {
               top: 0,
               left: 0,
               transition: "opacity 0.7s",
-              opacity: 1,
+              opacity: isActive ? 0 : 1,
               "&:hover": { opacity: 0 },
             }}
           />
@@ -75,7 +92,7 @@ const Icon: React.FC<IconProps> = ({ variant, onClick }) => {
               top: 0,
               left: 0,
               transition: "opacity 0.3s",
-              opacity: 0,
+              opacity: isActive ? 1 : 0,
               "&:hover": { opacity: 1 },
             }}
           />
