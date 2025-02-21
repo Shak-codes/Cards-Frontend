@@ -1,0 +1,13 @@
+* {
+    z-index: 0;
+}
+
+.navbar {
+    height: 75vh;
+    display: flex;
+    flex: 1;
+    min-width: 80px;
+    max-width: 100px;
+    border-radius: 14px;
+    background-color: rgba($color: #000, $alpha: 0.5);
+}
