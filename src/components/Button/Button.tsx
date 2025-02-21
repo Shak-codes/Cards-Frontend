@@ -7,21 +7,6 @@ type ButtonProps = {
   animated?: boolean;
 };
 
-// const StyledButton = styled.button<ButtonProps>`
-//   border-radius: ${({ borderRadius }) => borderRadius || '4px'};
-//   border: 2px solid ${({ outlineColor }) => outlineColor || '#000'};
-//   color: ${({ textColor }) => textColor || '#000'};
-//   background-color: ${({ backgroundColor }) => backgroundColor || '#fff'};
-//   padding: 10px 20px;
-//   cursor: pointer;
-//   transition: background-color 0.3s ease, color 0.3s ease;
-
-//   &:hover {
-//     background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor || '#fff'};
-//     color: ${({ hoverTextColor }) => hoverTextColor || '#000'};
-//   }
-// `;
-
 const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
@@ -44,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={handleClick}
       className={`button ${loading ? 'loading' : ''}${success ? 'success' : ''}`}
     >
-      <div className="button-content">
+      <div className="buttonContent">
         {text}
       </div>
       {loading && <div className="loader"></div>}

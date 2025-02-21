@@ -8,8 +8,6 @@ import Layout from './components/Layout/Layout';
 
 const socket = io("http://localhost:3001")
 
-
-
 const App: React.FC = () => {
   return (
     <Router>

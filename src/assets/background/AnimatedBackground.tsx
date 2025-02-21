@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./bg.scss"
+import "./styles.scss"
 
 // Define the type for the component's props
 interface AnimatedBackgroundProps extends React.SVGProps<SVGSVGElement> {

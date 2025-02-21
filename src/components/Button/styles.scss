@@ -17,18 +17,18 @@
   overflow: hidden;
   position: relative;
 
-  .button-content {
+  .buttonContent {
     display: flex;
     align-items: center;
     gap: 18px;
     transition: transform 0.4s ease; // Use transform for smooth shifting
   }
 
-  &.loading .button-content {
+  &.loading .buttonContent {
     transform: translateX(-12px); // Shift text to the left smoothly
   }
 
-  &.success .button-content {
+  &.success .buttonContent {
     transform: translateX(-12px); // Shift text to the left smoothly
   }
 
