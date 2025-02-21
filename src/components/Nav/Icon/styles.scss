@@ -1,0 +1,16 @@
+.IconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.IconFlexWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.IconStack {
+  position: relative;
+  width: 28px;
+  height: 28px;
+}
