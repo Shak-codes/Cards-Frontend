@@ -7,11 +7,10 @@ import Nav from '../../components/Nav/Nav';
 const Home: React.FC = () => {
   const { username } = useUser();
   return (
-    <div className={styles.container}>
+    <>
       <Nav/>
       <div className={styles.mainContent}/>
-      <AnimatedBackground className={styles.bg}/>
-    </div>
+    </>
   );
 };
 

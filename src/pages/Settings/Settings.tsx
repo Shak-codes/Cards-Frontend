@@ -1,10 +1,13 @@
 import React from 'react';
+import Nav from '../../components/Nav/Nav';
+import styles from './styles.module.scss';
 
 const Settings: React.FC = () => {
   return (
-    <div>
-      <h1>Settings!</h1>
-    </div>
+    <>
+      <Nav/>
+      <div className={styles.mainContent}/>
+    </>
   );
 };
 

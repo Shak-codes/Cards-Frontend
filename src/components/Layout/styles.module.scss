@@ -1,0 +1,22 @@
+@import '../../constants/colors.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient($deep-teal-900, $deep-teal-950);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.bg {
+  position: absolute;
+  transition: filter 0.3s ease;
+  z-index: -1;
+  pointer-events: none;
+}

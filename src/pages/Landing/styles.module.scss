@@ -5,22 +5,14 @@
     z-index: 1;
 }
 
-.container {
+.LandingContainer {
   width: 100vw;
   height: 100vh;
-  background-color: $deep-teal-950;
   overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.bg {
-  position: absolute;
-  transition: filter 0.3s ease;
-  z-index: 0;
-  pointer-events: none;
 }
 
 .blur {

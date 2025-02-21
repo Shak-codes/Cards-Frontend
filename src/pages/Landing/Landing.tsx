@@ -5,7 +5,6 @@ import Modal from '../../components/Modal/Modal';
 import Input from '../../components/Input/Input';
 import InputWatcher from '../../components/InputWatcher/InputWatcher';
 import { useNavigate } from 'react-router-dom';
-import AnimatedBackground from '../../assets/background/AnimatedBackground';
 import { useUser } from '../../context/UserContext';
 
 const Landing: React.FC = () => {
@@ -188,10 +187,9 @@ const Landing: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.LandingContainer}>
       <div className={`${styles.header} ${displayLogin || displaySignup ? styles.blur : ''}`}>
-        {/*<BGPattern className={`${styles.bg} ${isLoginOpen || isSignupOpen ? styles.blur : ''}`}/>*/}
-        <AnimatedBackground className={`${styles.bg} ${displayLogin || displaySignup ? styles.blur : ''}`}/>
+        {/* <AnimatedBackground className={`${styles.bg} ${displayLogin || displaySignup ? styles.blur : ''}`}/> */}
         <div className={styles.title}>
           <p className={styles.title1}>CARD</p>
           <p className={styles.title2}>GAMES</p>
