@@ -6,6 +6,7 @@ import Input from '../../components/Input/Input';
 import InputWatcher from '../../components/InputWatcher/InputWatcher';
 import { useNavigate } from 'react-router-dom';
 import AnimatedBackground from '../../assets/background/AnimatedBackground';
+import { useUser } from '../../context/UserContext';
 
 const Landing: React.FC = () => {
   const [displayLogin, setDisplayLogin] = useState(false);
@@ -22,6 +23,8 @@ const Landing: React.FC = () => {
     email: "",
     password: ""
   })
+
+  const { setUsername } = useUser();
 
   const [hideBearImgs, setHideBearImgs] = useState<string[]>([]);
   const [watchBearImgs, setWatchBearImgs] = useState<string[]>([]);
@@ -61,6 +64,7 @@ const Landing: React.FC = () => {
       // Handle the response
       if (response.ok) {
         console.log("User registered successfully:", data);
+        setUsername(username);
         navigate('/home');
         // Optionally, you can redirect the user or update the UI
       } else {
