@@ -187,7 +187,7 @@ const Landing: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.LandingContainer}>
+    <>
       <div className={`${styles.header} ${displayLogin || displaySignup ? styles.blur : ''}`}>
         <div className={styles.title}>
           <p className={styles.title1}>IDLE</p>
@@ -277,7 +277,7 @@ const Landing: React.FC = () => {
         />
         <Button text='Submit' onClick={handleLogin} />
       </Modal>
-    </div>
+    </>
   );
 };
 
