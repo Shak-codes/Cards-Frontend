@@ -13,4 +13,14 @@
   position: relative;
   width: 28px;
   height: 28px;
+
+  &:hover {
+    .MuiSvgIcon-root:first-child {
+      opacity: 0 !important;
+    }
+
+    .MuiSvgIcon-root:last-child {
+      opacity: 1 !important;
+    }
+  }
 }

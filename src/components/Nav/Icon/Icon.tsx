@@ -79,7 +79,7 @@ const Icon: React.FC<IconProps> = ({ variant, onClick }) => {
               left: 0,
               transition: "opacity 0.7s",
               opacity: isActive ? 0 : 1,
-              "&:hover": { opacity: 0 },
+              "&:hover": { opacity: 0, visibility: "hidden" },
             }}
           />
 

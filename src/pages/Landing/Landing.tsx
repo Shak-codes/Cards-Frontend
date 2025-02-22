@@ -189,10 +189,9 @@ const Landing: React.FC = () => {
   return (
     <div className={styles.LandingContainer}>
       <div className={`${styles.header} ${displayLogin || displaySignup ? styles.blur : ''}`}>
-        {/* <AnimatedBackground className={`${styles.bg} ${displayLogin || displaySignup ? styles.blur : ''}`}/> */}
         <div className={styles.title}>
-          <p className={styles.title1}>CARD</p>
-          <p className={styles.title2}>GAMES</p>
+          <p className={styles.title1}>IDLE</p>
+          <p className={styles.title1}>ACES</p>
         </div>
         <div className={styles.tagline}>
           <h1 className={styles.desc}>Enjoy your favorite card games on your terms. Play with friends anytime, anywhere, at your own pace whenever it fits your schedule.</h1>
