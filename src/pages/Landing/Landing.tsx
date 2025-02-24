@@ -23,7 +23,7 @@ const Landing: React.FC = () => {
     password: ""
   })
 
-  const { setUsername } = useUser();
+  const { setUsername, setEmail } = useUser();
 
   const [hideBearImgs, setHideBearImgs] = useState<string[]>([]);
   const [watchBearImgs, setWatchBearImgs] = useState<string[]>([]);
@@ -64,6 +64,7 @@ const Landing: React.FC = () => {
       if (response.ok) {
         console.log("User registered successfully:", data);
         setUsername(username);
+        setEmail(email);
         navigate('/home');
         // Optionally, you can redirect the user or update the UI
       } else {
@@ -97,7 +98,8 @@ const Landing: React.FC = () => {
 
       if (response.ok) {
         console.log("Login successful:", data);
-        localStorage.setItem("token", data.token);
+        setUsername(data.username);
+        setEmail(data.email);
         navigate('/home');
       } else {
         console.error("Login failed:", data.message);

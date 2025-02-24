@@ -1,12 +1,8 @@
 import './App.scss';
-import io from 'socket.io-client';
-import { v4 as uuidv4 } from 'uuid';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Landing, Home, Leaderboards, History, Friends, Stats, Settings, Lobby } from './pages';
 import Layout from './components/Layout/Layout';
-
-const socket = io("http://localhost:3001")
 
 const App: React.FC = () => {
   return (

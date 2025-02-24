@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { UserProvider } from './context/UserContext'; // Import the UserProvider
+import { UserProvider } from './context/UserContext';
+import { SocketProvider } from './context/SocketContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <UserProvider> {/* Wrap App with UserProvider */}
-      <App />
+    <UserProvider>
+      <SocketProvider>
+        <App />
+      </SocketProvider>
     </UserProvider>
   </React.StrictMode>
 );
